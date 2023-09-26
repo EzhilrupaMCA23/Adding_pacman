@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    button{
+        border: 5px dotted black;
+        font-size: x-large;
+        color:aqua;
+        background-color: black;
+        padding: 20px;
+        margin: 100px;
+        /* left: 20px;
+        right:20px;
+        top: 10px;
+        bottom: 30px; */
+    }
+</style>
+<body>
+    <button onclick="create()">Add pacman</button> 
+    <button onclick="move()">Start game</button>
+
+
+
+    <script>
+    let count=0;
+    let pacman=[];
+    let x_pos=[];
+    let y_pos=[];
+    let x_vel=[];
+    let y_vel=[];
+ 
+
+        function create(){
+              let xpos=Math.random()*500
+              let ypos=Math.random()*500
+              let xvel=Math.floor(Math.random()*20)
+              let yvel=Math.floor(Math.random()*20)
+              var new_img=document.createElement("img")
+              new_img.src="pacman2.jpg"
+              new_img.style.width="50"+'px'
+              new_img.style.left=xpos+'px'
+              new_img.style.top=ypos+'px'
+              new_img.style.position="absolute"
+              
+              pacman.push(new_img)
+              x_pos.push(xpos)
+              y_pos.push(ypos)
+              x_vel.push(xvel)
+              y_vel.push(xvel)
+              document.body.appendChild(new_img)
+              console.log(x_pos,y_pos)
+        }
+         function move(){
+            count++
+             for(i=0;i<pacman.length;i++){
+                 x_pos[i]=x_pos[i]+x_vel[i]
+                 y_pos[i]=y_pos[i]+y_vel[i]
+            
+                if(count % 2==0){
+                    pacman[i].src="pacman2.jpg"
+                }
+                else{
+                    pacman[i].src="pacman1.jpg"
+                }
+                
+                if(x_pos[i]<=0 || x_pos[i] >= window.innerWidth-200){
+                    x_vel[i]=-x_vel[i]
+                }
+                if(y_pos[i]<=0 || y_pos[i] >= window.innerHeight-200){
+                    y_vel[i]=-y_vel[i]
+                }
+                if(x_pos[i]>x_pos[i]+x_vel[i]){
+                if(count % 2==0){
+                    pacman[i].src="pacman3.jpg"
+                
+                }
+                else{
+                    pacman[i].src="pacman4.jpg"
+                }
+                }
+
+                 pacman[i].style.left=x_pos[i]+'px'
+                 pacman[i].style.top=y_pos[i]+'px'
+                
+             }
+             setTimeout(move,100);
+         }
+         
+    </script>
+</body>
+</html>
