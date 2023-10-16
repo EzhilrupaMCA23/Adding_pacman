@@ -41,7 +41,7 @@
               let xvel=Math.floor(Math.random()*20)
               let yvel=Math.floor(Math.random()*20)
               var new_img=document.createElement("img")
-              new_img.src="pacman2.jpg"
+              new_img.src="./images/pacman2.jpg"
               new_img.style.width="50"+'px'
               new_img.style.left=xpos+'px'
               new_img.style.top=ypos+'px'
@@ -62,10 +62,10 @@
                  y_pos[i]=y_pos[i]+y_vel[i]
             
                 if(count % 2==0){
-                    pacman[i].src="pacman2.jpg"
+                    pacman[i].src="./images/pacman2.jpg"
                 }
                 else{
-                    pacman[i].src="pacman1.jpg"
+                    pacman[i].src="./images/pacman1.jpg"
                 }
                 
                 if(x_pos[i]<=0 || x_pos[i] >= window.innerWidth-200){
@@ -76,11 +76,11 @@
                 }
                 if(x_pos[i]>x_pos[i]+x_vel[i]){
                 if(count % 2==0){
-                    pacman[i].src="pacman3.jpg"
+                    pacman[i].src="./images/pacman3.jpg"
                 
                 }
                 else{
-                    pacman[i].src="pacman4.jpg"
+                    pacman[i].src="./images/pacman4.jpg"
                 }
                 }
 
